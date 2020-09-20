@@ -1278,3 +1278,12 @@ code {
 canvas[data-id="layer2-node"] {	
     filter: invert(1) hue-rotate(110deg) saturate(2.5);	
 }
+
+/* Color Inbox Tag to see if CSS updates */
+span.rm-page-ref[data-tag="Inbox"] {
+    background: black !important;
+    color: #fff !important;
+    padding: 3px 7px;
+    //line-height: 2em;
+    font-weight: 500;
+}
