@@ -147,43 +147,6 @@ textarea, a {
 /*         PAGE CARDS         */
 /* -------------------------- */
 
-.roam-article > div {
-    padding: 20px 50px 30px 40px;
-}
-
-.roam-article > div {
-    background: var(--page-color);
-    /* position: relative; */
-    border-radius: 10px;
-}
-
-.roam-article > div:first-child, #roam-right-sidebar-content > * > * {
-    box-shadow: var(--page-shadow);
-}
-
-/* set min-width for collapsed sidebar*/
-#roam-right-sidebar-content > * {
-    min-width: 58.5px;
-}
-
-.roam-body-main {
-    top: 0 !important;
-    height: 100% !important;
-    width: auto !important;
-    position: relative !important;
-    padding-left: 50px;
-}
-
-.roam-main {
-    width: unset !important;
-    max-width: 100% !important;
-    height: 100%;
-    
-    overflow-x: scroll;
-    overflow-y: hidden;
-    margin: auto;
-    transition: padding-left 0.15s ease-out;
-}
 
 /* -------------------------- */
 /*       RIGHT SIDEBAR        */
