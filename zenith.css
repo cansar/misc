@@ -1,24 +1,32 @@
+:root {	
+    --page-width: 616px;
+    --page-order: row-reverse; /* new pages show up to the right */
+    /*--page-order: row; /* new pages show up to the left */
+    
+    --header-font: "Source Sans Pro", "Inter", sans-serif;	
+    --body-font: "Source Sans Pro", "Inter", sans-serif;	
+    	
+    --bg-color: #EEEEEE;	
+    --page-color: rgba(255, 255, 255, 0.95);	
+    	
+    --text-color: #000000;	
+    --icon-color: #5c7080;
+    --bullet-color: rgba(0, 0, 0, 0.2);	
+    	
+    --page-shadow: 0px 8px 14px rgba(0, 0, 0, 0.05);	
+    	
+    --color-primary: 73, 197, 91;	
+    --color-primary-contrast: #FFFFFF;	
+    --color-secondary: 147, 100, 235;
+
+    --color-secondary-contrast: #FFFFFF;	
+}
+
 :root {
     --page-width: 616px;
     --page-order: row-reverse;
 }
 
-html, body, .roam-app {
-    background-color: var(--bg-color) !important;
-    overflow: hidden !important;
-}
-
-/* hide scrollbars */
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* Chrome/Safari/Webkit */
-}
-
-/* hide scrollbars */
-* {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
-}
 
 h1, h2, h3,  h4, h5, h6, h1 > a, h2 > a, h3 > a, h4 > a, .rm-title-textarea {
     font-family: var(--header-font) !important;
@@ -120,189 +128,6 @@ textarea, a {
     background-color: rgb(var(--color-secondary));
 }
 
-/* set width and other attributes of pages */
-.roam-article {
-    padding: 0 !important;
-    width: var(--page-width) !important;
-}
-.roam-article, #all-pages-search, #roam-right-sidebar-content > * {
-    margin: 50px 0px 100px 0px !important;
-    box-sizing: border-box;
-    height: auto !important;
-    max-width: var(--page-width);
-}
-/* make blocks respect --page-width */
-.roam-block-container {
-    max-width: var(--page-width);
-}
-
-*[style*="background-color: white"] {
-    background-color: var(--page-color) !important;
-}
-*[style*="background-color: rgb(213, 218, 223)"] {
-    background-color: rgba(var(--color-primary), 0.3) !important;
-}
-
-/* -------------------------- */
-/*         PAGE CARDS         */
-/* -------------------------- */
-
-
-/* -------------------------- */
-/*       RIGHT SIDEBAR        */
-/* -------------------------- */
-
-
-/* -------------------------- */
-/*        LEFT SIDEBAR        */
-/* -------------------------- */
-
-/* HIDE LOGO*/
-#roam-sidebar-logo {
-    display: none;
-}
-
-.roam-sidebar-content * {
-    color: var(--icon-color) !important;
-}
-
-.starred-pages > a > .page:hover {
-    background-color: transparent !important;
-    color: rgb(var(--primary-color)) !important;
-}
-.log-button * {
-    /* this did not do what I expected */
-    /* but it accomplished what I wanted */
-    color: rgb(var(--primary-color)) !important;
-}
-.log-button {
-    background: none !important;
-}
-.log-button:hover, .log-button:hover * {
-    color: var(--text-color) !important;
-}
-.roam-sidebar-content {
-    color: var(--text-color) !important;
-}
-
-
-.roam-topbar {
-    opacity: 1 !important;
-    background-color: transparent !important;
-    
-    margin-top: 70px;
-    width: 20px;
-    display: inline-block;
-    padding-left: 0 !important;
-    position: relative !important;
-    
-    position: sticky !important;
-    left: 0px;
-    transition: none !important;
-    z-index: 999;
-    
-    border: none !important;
-}
-.roam-sidebar-container > .roam-sidebar-content::before {
-    content: "";
-    position: absolute;
-    top: -70px; right: -68px;
-    width: 400px;
-    height: 100vh;
-    background: var(--bg-color) !important;
-    opacity: 0.7;
-    z-index: -1;
-}
-
-.roam-sidebar-container {
-    border: none !important;
-    top: 0px !important;
-    padding: 70px 68px 50px 0px;
-
-    visibility: hidden; /* hide background */
-    transition: all .25s ease-out;
-    width: 300px !important;
-    backdrop-filter: blur(5px);
-    background: #000000 !important;
-
-    /* fix scrolling */
-    overflow-y: auto;
-}
-
-.roam-sidebar-container > .roam-sidebar-content {
-    display: block !important;
-    height: auto !important;
-    visibility: visible; /* show contents */
-}
-.roam-sidebar-container > .roam-sidebar-content > * {
-    opacity: 0 !important;
-    transition: opacity .6s ease-out !important
-}
-.roam-sidebar-container:not([style*="top: 0px"]) {
-    left: -245px !important;
-}
-.roam-sidebar-container[style*="top: 0px"] > .roam-sidebar-content > * {
-    opacity: 1 !important;
-}
-.roam-sidebar-container[style*="top: 0px"] + .roam-main {
-    padding-left: 250px;
-}
-
-/* separator between "ALL PAGES" and "SHORTCUTS" */
-.starred-pages-wrapper > div[style*="background"] {
-    background: var(--icon-color) !important;
-    opacity: 0.5;
-  }
-
-
-/* fix height with absolute positioning of email address */
-.roam-sidebar-content > .flex-h-box {
-    height: 40px;
-}
-.roam-sidebar-content > .flex-h-box > * {
-    pointer-events: auto;
-} 
-.roam-sidebar-content > .flex-h-box ~ * {
-    pointer-events: all;
-}
-.roam-sidebar-content > .flex-h-box > .flex-h-box {
-    position: absolute;
-    left: 45px;
-    top: 5px;
-}
-
-.roam-topbar > .flex-h-box {
-    width: 50px;
-    flex-direction: column;
-    height: 1px !important;
-    align-items: start !important;
-    text-align: center;
-    
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    left: 0px;
-}
-.roam-topbar > .flex-h-box > * {
-    flex: 0 0 20px !important;
-    margin: auto !important;
-    max-width: 20px !important;
-    max-height: 20px !important;
-}
-.roam-topbar > div >.bp3-button:first-child {
-    align-self: start !important;
-    position: fixed !important;
-    left: 16px;
-    top: 78px;
-    z-index: 9999999 !important;
-}
-.roam-topbar > div > *:nth-child(2) {
-    margin-top:20px !important;
-}
-
-
-
-
-
 .rm-reference-item {
     background-color: transparent !important;
     border: none !important;
@@ -314,44 +139,6 @@ textarea, a {
     color: #000000;
     font-weight: bold;
 }
-
-/* SOME BLACKMAGIC TO GET SEARCH ICON TO FUNCTION LIKE OTHER BUTTONS */
-
-.roam-topbar .bp3-icon-search {
-    padding: 4px;
-    border-radius: 3px;
-    margin: 0 !important;
-    cursor: pointer;
-}
-
-/* style contains `200px` if search bar is NOT selected */
-/* hovering search bar in this mode == hovering icon itself */
-/* we must however have the search bar in front of the icon (but invisible) so that it can focus on click */
-/* very hacky :P */
-.rm-find-or-create-wrapper[style*="200px"]:hover .bp3-icon-search, .roam-topbar .bp3-icon-search:hover {
-    background-color: rgba(var(--color-primary), 0.4);
-    color: var(--text-color) !important;
-}
-.roam-topbar .bp3-icon-search svg { padding: 1px; }
-/* fix centering on calendar icon */
-.roam-topbar .bp3-icon-calendar { margin: 0 !important }
-
-.rm-find-or-create-wrapper {
-    width: 20px !important;
-}
-.rm-find-or-create-wrapper .bp3-overlay {
-    position: fixed;
-    top: 50px;
-    left: calc(50% - 325px);
-    width: 650px;
-}
-
-.roam-body-main {
-    display: block;
-}
-
-
-
 
 /* -------------------------- */
 /*       POPOVER STYLES       */
@@ -442,304 +229,6 @@ body > .bp3-portal .bp3-text-small {
     background-color:var(--page-color) !important;
 }
 
-/* -------------------------- */
-/*         SEARCH BAR         */
-/* -------------------------- */
-
-#find-or-create-input {
-    opacity: 0;
-    z-index: 10000; /* bring in front of icon to keep clickable */
-    cursor: pointer;
-}
-
-/*#find-or-create-input:active, */#find-or-create-input:focus {
-    opacity: 1;
-    position: fixed;
-    width: 600px;
-    top: 100px;
-    left: calc(50% - 600px / 2);
-    cursor: text;
-}
-
-
-#find-or-create-input {
-    border-radius: 10px 10px 0px 0px;
-    font-size: 18px;
-    padding: 20px 20px;
-}
-/* if input is empty (no menu) then use all-around border-radius*/
-#find-or-create-input[value=""] {
-    border-radius: 10px;
-}
-
-/* highlight around search box */
-#find-or-create-input:focus {
-    box-shadow: 0 0 0 1px rgb(var(--color-primary)), 0 0 0 3px rgba(var(--color-primary), 0.3), inset 0 1px 1px rgba(16,22,26, 0.2);
-}
-
-/* styling dropdown menu*/
-.rm-find-or-create-wrapper .bp3-popover {
-    border-radius: 0px 0px 10px 10px;
-    overflow: hidden;
-    background: var(--page-color);
-    backdrop-filter: blur(5px);
-}
-
-/* prevent coloured menu */
-.rm-find-or-create-wrapper .bp3-popover-content, .rm-find-or-create-wrapper .bp3-menu {
-    background-color: transparent !important;
-}
-
-/* properly position search menu overlay */
-.rm-find-or-create-wrapper .bp3-overlay {
-    top: 142px;
-    width: 600px;
-    left: calc(50% - 300px);
-    z-index: 999999;
-}
-
-/* new page text */
-.rm-find-or-create-wrapper .rm-new-page {
-    color: rgb(var(--color-primary)) !important;
-}
-
-/* selected search result */
-.rm-find-or-create-wrapper .rm-menu-item[style*="background"] {
-    background-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-/* search results highlighted words */
-.rm-find-or-create-wrapper .rm-menu-item .rm-search-list-item span[style*="yellow"],
-.rm-pages-title-col span[style*="yellow"]{
-    background-color: rgba(var(--color-primary), 0.4) !important;
-    color: var(--text-color);
-}
-
-.bp3-input {
-    background-color: var(--page-color) !important;
-    color: var(--text-color) !important;
-}
-.bp3-input::placeholder {
-    background-color: var(--page-color) !important;
-    color: var(--text-color) !important;
-    opacity: 0.3;
-}
-
-.rm-search-list-item {
-    color: var(--text-color) !important;
-    opacity: 0.6;
-}
-
-/* -------------------------- */
-/*          DIAGRAM           */
-/* -------------------------- */
-
-
-
-.rm-block-text svg :not(.katex) {
-    background-color: var(--bg-color) !important;
-    border: none !important;
-}
-.bp3-button, .roam-block div[style*="100vh"] > button {
-    background-image: none !important;
-    padding: 0px 10px !important;
-    border: none !important;
-    border-radius: 5px !important;
-}
-.roam-block div[style*="100vh"] > button {
-    background-color: var(--bg-color) !important;
-}
-
-.bp3-button:hover, .roam-block div[style*="100vh"] > button:hover {
-    background-color: rgba(var(--color-primary), 0.5) !important;
-}
-.roam-block div[style*="100vh"] div[style*="background-color: white"] {
-    background-color: var(--page-color) !important;
-    border-color: var(--bg-color) !important;
-}
-
-.roam-center svg > g > rect:first-child, #roam-right-sidebar-content > div svg  > g > rect:first-child {
-    display: none;
-}
-
-.roam-center svg > g > foreignObject, #roam-right-sidebar-content > div svg > g > foreignObject {
-    background-color: var(--page-color);
-    border-radius: 8px;
-    filter: drop-shadow( 0px 4px 6px rgba(0, 0, 0, .05));
-    border: 1px solid transparent;
-}
-
-/* SELECTION */
-
-.roam-center svg > g > rect[stroke="red"] + foreignObject,
-#roam-right-sidebar-content > div svg > g > rect[stroke="red"] + foreignObject {
-    border-color: rgb(var(--color-secondary));
-}
-
-.roam-center svg > g > rect[style*="stroke: red"] + foreignObject,
-#roam-right-sidebar-content > div svg > g > rect[style*="stroke: red"] + foreignObject{
-    border-color: rgb(var(--color-secondary));
-    
-}
-
-.roam-center svg > g > rect[style*="rgba"] + foreignObject,
-#roam-right-sidebar-content > div svg > g > rect[style*="rgba"] + foreignObject{
-    background-color: rgba(255, 255, 255, 0.4)
-}
-
-.roam-center svg > g > foreignObject > input:first-child,
-#roam-right-sidebar-content > div svg > g > foreignObject > input:first-child{
-    background-color: rgb(var(--color-primary)) !important;
-    color: var(--color-primary-contrast);
-    height: 30px;
-}
-
-.roam-center svg > line[style*="stroke: red"],
-#roam-right-sidebar-content > div svg > line[style*="stroke: red"]{
-    stroke: rgb(var(--color-secondary)) !important;
-}
-
-.roam-center svg > rect[style*="fill: rgba(55, 141, 240, 0.5)"],
-#roam-right-sidebar-content > div svg > rect[style*="fill: rgba(55, 141, 240, 0.5)"]{
-    fill: rgba(var(--color-secondary), 0.5) !important;
-    stroke: rgb(var(--color-secondary)) !important;
-}
-
-/* -------------------------- */
-/*       DATE PICKER          */
-/* -------------------------- */
-
-.bp3-datepicker{
-    background-color:var(--page-color);
-}
-
-.DayPicker-Day:hover{
-    background: rgb(var(--color-primary)) !important;
-}
-
-
-/* -------------------------- */
-/*       SEARCH PAGE          */
-/* -------------------------- */
-
-#all-pages-search {
-    max-height: calc(100% - 50px);
-    overflow-y: auto;
-    padding-bottom: 100px !important;
-}
-#all-pages-search > div {
-    padding: 0 !important;
-}
-.rm-pages-row-header {
-    background-color: rgba(var(--color-primary), 0.4) !important;
-    color: var(--color-secondary-contrast) !important;
-    border: none !important;
-}
-.rm-pages-row[style] .bp3-icon::before {
-    margin-left: 5px;
-    color: var(--color-secondary-contrast) !important;
-}
-.rm-pages-row-highlight {
-    background-color: var(--page-color);
-}
-.rm-pages-row[style] .rm-pages-action-col {
-    color: transparent !important;
-}
-/* use wrench icon for actions header rather than "AC..." */
-.rm-pages-row[style] .rm-pages-action-col::before {
-    font-family: "Icons16";
-    content: "";
-    color: var(--color-secondary-contrast);
-    position: absolute;
-    margin-left: 10px;
-}
-
-/* style new page button */
-.bp3-intent-success {
-    color: rgb(var(--color-primary)) !important;
-}
-.bp3-intent-success:hover {
-    background-color: rgba(73, 197, 91, 0.2) !important;
-}
-.bp3-intent-success:active {
-    background-color: rgba(73, 197, 91, 0.4) !important;
-}
-
-/* new search page */
-
-.bp3-control-indicator {
-    background-color: var(--page-color) !important;
-    background-image: none !important;
-    border: 1px solid rgba(var(--color-primary), 0.6) !important;
-}
-
-.bp3-control input:checked ~ .bp3-control-indicator {
-    background-color: rgb(var(--color-primary)) !important;
-    box-shadow: none !important; /* sliders */
-}
-.bp3-checkbox > input:checked ~ .bp3-control-indicator::before {
-    width: 0.9em !important;
-    height: 0.9em !important;
-}
-
-.rm-clickable-pill {
-    background-color: rgba(var(--color-primary), 0.4) !important;
-}
-.rm-clickable-pill.empty-pill {
-    background-color: var(--page-color) !important;
-}
-
-.rm-pages-col-word-count > div > span:first-child,
-.rm-pages-col-word-count + div > div > span:first-child{
-    display: none
-}
-/*.rm-pages-col-word-count > div > .sorting-button-group::before {
-    content: "WORDS";
-    font-size: 0.8em;
-}
-.rm-pages-col-word-count + div > div > .sorting-button-group::before {
-    content: "REFS";
-    font-size: 0.8em;
-}*/
-.sorted-header-text {
-    color: var(--text-color) !important;
-}
-
-.rm-pages-row .rm-pages-col {
-    flex: 0 0 60px !important;
-}
-.rm-pages-row .rm-pages-col:nth-last-child(1),
-.rm-pages-row .rm-pages-col:nth-last-child(2){
-    flex: 0 0 140px !important;
-}
-.rm-all-pages .table > div {
-    max-width: var(--page-width) !important;
-    min-width: var(--page-width) !important;
-}
-
-.sort-button::before {
-    color: var(--text-color) !important;
-}
-.sort-button.focused::before {
-    color: rgb(var(--color-primary)) !important;
-}
-
-.rm-pages-row {
-    border-bottom: none !important;
-}
-.rm-pages-row:nth-child(2n+1) {
-    background-color: rgba(var(--color-primary), 0.15);
-    border-radius:3px;
-}
-
-/* fix width change on border */
-.rm-all-pages .bp3-input {
-    border: 1px solid transparent;
-}
-
-.rm-all-pages .bp3-input.focused {
-    border: 1px solid rgb(var(--color-primary)) !important;
-}
 
 /* -------------------------- */
 /*           MISC             */
@@ -771,20 +260,6 @@ body > .bp3-portal .bp3-text-small {
     top: 0; left: 0;
     width: 100vw !important;
     height: 100vw !important;
-}
-
-/* GRAPH VIEW */
-
-/* you can't actually style the graph view because it uses canvas elements, but we *can* apply CSS filters to it to slightly change the appearance */
-canvas[data-id="layer2-node"] {
-    /*filter: invert(1) drop-shadow(0px 3px 4px rgba(0,0,0,0.1));*/
-    filter: invert(1) hue-rotate(110deg) saturate(2.5);
-    opacity: 0.3;
-    transition: opacity .2s ease-out;
-}
-
-*[id*="cyto-wrapper"]:hover canvas[data-id="layer2-node"] {
-    opacity: 1;
 }
 
 
@@ -855,7 +330,7 @@ code {
 .block-border-left {
     border-color: var(--bullet-color);
   }
-  
+
 
 /* help button / popup */
 #buffer {
@@ -1037,7 +512,7 @@ code {
 }
 
 /* fix specific popover sizes and positions... */
-
+/*
 .roam-topbar .bp3-popover-wrapper:nth-child(6) .bp3-popover,
 .roam-topbar .bp3-popover-wrapper:nth-child(7) .bp3-popover{
     width: 600px;
@@ -1049,6 +524,7 @@ code {
 #roam-right-sidebar-content > div .flex-h-box > .bp3-popover-wrapper .bp3-transition-container .bp3-popover-arrow {
     left: 10px !important;
 }
+*/
 /* -------------------------- */
 /*         MOBILE             */
 /* -------------------------- */
@@ -1210,43 +686,9 @@ code {
     transform: none !important;
 }
 
-/* GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');	
-
-:root {	
-    --page-width: 616px;
-    --page-order: row-reverse; /* new pages show up to the right */
-    /*--page-order: row; /* new pages show up to the left */
-    
-    --header-font: "Source Sans Pro", "Inter", sans-serif;	
-    --body-font: "Source Sans Pro", "Inter", sans-serif;	
-    	
-    --bg-color: #EEEEEE;	
-    --page-color: rgba(255, 255, 255, 0.95);	
-    	
-    --text-color: #000000;	
-    --icon-color: #5c7080;
-    --bullet-color: rgba(0, 0, 0, 0.2);	
-    	
-    --page-shadow: 0px 8px 14px rgba(0, 0, 0, 0.05);	
-    	
-    --color-primary: 73, 197, 91;	
-    --color-primary-contrast: #FFFFFF;	
-    --color-secondary: 147, 100, 235;
-
-    --color-secondary-contrast: #FFFFFF;	
-}
-
-/* CHANGE COLOURS IN CANVAS */
-canvas[data-id="layer2-node"] {	
-    filter: invert(1) hue-rotate(110deg) saturate(2.5);	
-}
-
-/* Color Inbox Tag to see if CSS updates */
-span.rm-page-ref[data-tag="Inbox"] {
-    background: black !important;
-    color: #fff !important;
-    padding: 3px 7px;
-    //line-height: 2em;
-    font-weight: 500;
+#right-sidebar {
+    background: white !important;
+    border: 1px solid var(--subtle-border-color) !important;
+    border-radius: 12px;
+  	margin-right: 12px;
 }
